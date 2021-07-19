@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,600');
+
+	body, html {
+  		height: 100%;
+  		margin: 0;
+  		/*						   "Open Sans"*/
+  		font: normal 600 16px/20px "Titillium Web",Helvetica,Arial,Verdana,sans-serif;
+  		color: #777;
+  		/*background-color: #1f1c22;*/
+		margin-bottom: 750px;
+	}
+	
+	.img-logo { 	
+  		margin-bottom: 20px;	
+  		width: 366px;
+	}
+
+	div.parallax {
+  		/* The image used */
+  		background-image: url('../img/img3.jpg');
+  		/* Full height */
+  		height: 100%;
+  		/* Create the parallax scrolling effect */
+  		background-attachment: fixed;
+  		background-position: center;
+  		background-repeat: no-repeat;
+  		background-size: cover;
+	}
+	
+	div.parallax div.fonsfosc{
+  		height: 100%;
+  		background-color: rgba(0,0,0,0.5);
+	}
+	
+	.wrap {
+		margin: 0;
+		height: 0;
+		position: relative;
+    	top: 7%;
+	}
+	
+	.centrat {
+		width: auto;
+    	height: auto;   
+    	display: flex;
+    	align-content: center;
+    	align-items: center;
+    	justify-content: center;
+    	margin: 0;
+	}
+	
+	/* exemples noms:
+		mBot50 --> Margin Bottom 50%
+		mTop30 --> Margin Top 30%
+	*/
+	.mTop10 {
+    	margin-top: 10%;
+	}
+	
+	.nav {
+		width: auto;
+    	height: auto;   
+    	display: flex;
+    	flex-direction: column;
+    	align-content: center;
+    	justify-content: center;
+    	align-items: center;
+    	margin: 0;
+	}
+	
+	.nav-menu {
+		font-family: 'Titillium Web';
+  		text-transform: uppercase;
+  		text-align: center;
+  		font-weight: 600;
+	}
+	.nav-menu * {
+		transition: all .35s ease;
+		box-sizing: border-box;
+	}
+	
+	ul.nav-menu {
+		margin: 0;
+		padding:0;
+		list-style:none;
+		height:36px; line-height:36px;
+	}
+	ul.nav-menu li {
+		float:left;
+		margin-left: 15px;
+		opacity: 1.0;
+	}
+	ul.nav-menu a {
+		display:block;
+		padding:0 28px;
+		color:snow;
+		text-decoration:none;
+		position: relative;
+		font-size:20px;
+		border:3px solid transparent;
+	}
+
+	ul.nav-menu a::before,
+ul.nav-menu a::after {
+  content: '';
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  transition: all .35s ease;
+  opacity: 0;
+}
+.nav-menu a::before {
+  content: '';
+  right: 0;
+  top: 0;
+  border-top: 3px solid #55989f;
+  border-right: 3px solid #3c6c71;
+  transform: translate(-100%, 50%);
+}
+
+.nav-menu a:after {
+  content: '';
+  left: 0;
+  bottom: 0;
+  border-bottom: 3px solid #55989f;
+  border-left: 3px solid #3c6c71;
+  transform: translate(100%, -50%)
+}
+.nav-menu a:hover:before,
+.nav-menu a:hover:after{
+  transform: translate(0,0);
+  opacity: 1;
+}
+
+.nav-menu a:hover {
+  color: #3c6c71;
+}	
+.embolcall-divs-diagonal{
+	position: relative;
+	height: 200px;
+}
+.diagonal {
+	position: absolute;
+	background-color: #3c6c71;
+	width: 100%;
+	height: 100%;
+}
+.recte {
+	position: absolute;
+	background-color: #3c6c71;
+	width: 100%;
+	height: 100%;
+	top: 98%;
+}
+.diag-esquerra{transform: skewY(15deg);}
+.diag-dreta{transform: skewY(-15deg);}
