@@ -3,22 +3,26 @@ package objectes;
 import java.time.LocalDateTime;
 
 public class Tweet {
-	private int id;
-	private String tweet;
+	private String id;
+	private String text;
 	private int likes;
 	private LocalDateTime data;
 	
-	public int getId() {
+	public Tweet(String id, String text) {
+		this.id = id;
+		this.text = text;
+	}
+	public String getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getTweet() {
-		return tweet;
+		return text;
 	}
-	public void setTweet(String tweet) {
-		this.tweet = tweet;
+	public void setTweet(String text) {
+		this.text = text;
 	}
 	public int getLikes() {
 		return likes;

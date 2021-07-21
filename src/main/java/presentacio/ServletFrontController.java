@@ -7,10 +7,12 @@ import java.io.OutputStream;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@WebServlet("/frontController")
 public class ServletFrontController extends HttpServlet {
 	static final long serialVersionUID = 1;
 
