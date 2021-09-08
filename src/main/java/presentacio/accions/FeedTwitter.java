@@ -1,17 +1,11 @@
 package presentacio.accions;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileOutputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
-import com.vdurmont.emoji.*;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -37,7 +31,6 @@ public class FeedTwitter implements Action {
 			StringBuffer res = new StringBuffer();
 			while ((inputLine = in.readLine()) != null) {
 				res.append(inputLine);
-				System.out.println(inputLine);
 			}
 			in.close();
 			
@@ -99,13 +92,16 @@ public class FeedTwitter implements Action {
 			}
 			in2.close();
 			
+			// remplaço els caràcters amb codi decimal 65039 perquè és un caràcter que surt, no sé exactament
+			// per què, després dels emojis. És un símbol estrany, que es carrega com un interrogant
+			// He tingut prou feines per solucionar-ho, però ja està
+			// https://stackoverflow.com/questions/68468491/java-unicode-strange-behaviour 
 			JSONObject jsonObject2 = (JSONObject) JSONValue.parse(res2.toString().replace((char)65039, ' '));
 			JSONArray dades2 = (JSONArray) jsonObject2.get("data");
 	        for (int i = 0; i < dades2.size(); i++) {
 	        	JSONObject jsonObject3 = (JSONObject)dades2.get(i);
 	        	String id_ = (String) jsonObject3.get("id");
 	        	String text_ = (String) jsonObject3.get("text");
-	        	System.out.println(text_);
 	        	usr.afegirTweet(id_,text_);
 	        }
 	        http2.disconnect();

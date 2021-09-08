@@ -8,7 +8,7 @@ import presentacio.Action;
 public class Menu implements Action {
 
 	public String execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		String nextPage = "jsp/benvinguda.jsp";
+		String nextPage = "jsp/iniciFeedTwitter.jsp";
 		return nextPage;
 	}
 }

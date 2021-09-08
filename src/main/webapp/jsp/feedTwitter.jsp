@@ -9,24 +9,25 @@ com.vdurmont.emoji.*"
 <link rel="stylesheet" type="text/css" href="css/estils-feed-twitter.css">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="description" content="Feed Twitter" />
-<meta charset="UTF-16"/>
+<meta charset="utf-8"/>
 <!-- CAL ACABAR DE POSAR METADADES  -->
 <style type="text/css">
 	html {
-		height: 120%;
+		height: fit-content;
 		max-width: 900px;
 		margin: 0 auto;
 		background-color: #1B4965;
 		color: #CAE9FF;
 		margin-top: 0px;
+		/*border: 1px solid green;*/
 	}
 	body {
 		margin: 0;
 		width: 100%;
-		position: relative;
-		border: 1px solid red;
+		/*border: 1px solid red;*/
 		display: flex;
 		margin-top: 50px;
+		text-align: justify;
 	}
 	body > div:first-child {
 		margin-right: 25px;
@@ -57,28 +58,50 @@ com.vdurmont.emoji.*"
 		border-top: 1px solid #5FA8D3;
 		border-bottom: 1px solid #5FA8D3;
 	}
+	div.inf-principal {
+		padding: 5px;
+	}
 	.justificar{text-align: justify;}
 	.negreta{font-weight: bold;}
 	.inf-principal > a:hover img{
 		opacity: 0.6;
-	}
-	div.caixa {
-		margin: 0;
-		padding: 0;
-		width:100%;
-		border-bottom: 1px solid #62B6CB;
 	}
 	div.tweets{
 		width: 100%;
 		display: flex;
 		border: 1px solid #62B6CB;
 		flex-direction: column;
+		height: fit-content;
 	}
-	div.tweets div {
+	div.caixa {
+		margin: 0;
+		padding: 0;
 		width: 100%;
+		border-bottom: 1px solid #62B6CB;
+	}
+	div.caixa2 {
+		margin: 10px 16px;
+	}
+	div.cos-tweet {
+		width: 100%;
+	}
+	div.cos-tweet > div {
+		margin-left: 45px;
 		white-space: pre-line;
-		height: 100%;
-		
+	}
+	div.capçalera-tweet {
+		display: flex;
+	}
+	div.capçalera-tweet img {
+		margin-right: 5px;
+	}
+	div.capçalera-tweet a {
+		text-decoration: none;
+		color: snow;
+	}
+	div.capçalera-tweet a:hover {
+		text-decoration: underline;
+		color: grey;
 	}
 	
 </style>
@@ -117,18 +140,28 @@ com.vdurmont.emoji.*"
 				<div class="negreta">Seguint</div>
 				<div><%= usr.getNSeguint()%></div>
 			</div>
-			<div>
-				<div class="negreta">Likes</div>
-				<div><%= usr.getNLikes()%></div>
-			</div>
 		</div>
 		<p><%=EmojiParser.parseToHtmlHexadecimal("") %></p>
 	</div>
 	<div class="tweets">
 		<%for(Tweet tw : usr.getTweets()){ %>
 		<div class="caixa">
-			<div>
-				<div><%= EmojiParser.parseToHtmlHexadecimal(tw.getTweet()) %></div>
+			<div class="caixa2">
+				<div class="capçalera-tweet">
+					<img width="30" height="30" alt="imatge perfil" src="<%= usr.getImatge() %>"/>
+					<div>
+						<a href="#"><%= EmojiParser.parseToHtmlHexadecimal(usr.getNom()) %></a>
+						<a href="#">@<%= usr.getUsername() %></a>
+					</div>
+				</div>
+				<div class="cos-tweet">
+					<div>
+						<%= EmojiParser.parseToHtmlHexadecimal(tw.getTweet()) %>
+					</div>
+				</div>
+				<div class="inf-addicional">
+					<a></a>
+				</div>
 			</div>
 			</div>
 		<%} %>
